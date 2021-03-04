@@ -50,7 +50,7 @@ var_dump($_SESSION);
                         $queryIntoFranquias .= "'".$_SESSION['usuarioFranquiaId']."'";
                         $queryIntoFranquias .= ")";
                     }
-                    $usuariosQuery = $sql->query("select usuario, (select nome from usuarios where indice = usuariosfranquias.usuario) as usuarioNome, franquia, (select nome from franquias where indice = usuariosfranquias.franquia) as nomeFranquia from usuariosfranquias".$queryIntoFranquias) or die(mysqli_error($sql));
+                    $usuariosQuery = $sql->query("select usuario, (select nome from usuarios where indice = usuariosfranquias.usuario) as usuarioNome, franquia, (select nome from franquias where indice = usuariosfranquias.franquia) as nomeFranquia from usuariosfranquias".$queryIntoFranquias." and (select cargo from usuarios where usuarios.indice = usuariosfranquias.usuario) in ('3','4','5','6')") or die(mysqli_error($sql));
                     echo "<div class=\"user_select\">";
                     echo "  <p class=\"legenda_select\">Usuário:</p>";
                     echo "  <select name=\"usuario\" id=\"select_user\">";
@@ -70,7 +70,24 @@ var_dump($_SESSION);
             </div>
             <div id="not_leads">
                 <img src="img/sino_leads.png" alt="" srcset="">
-                <div class="num_leads">4</div>
+                <?
+                $queryIntoFranquiasLeads = "";
+                if (count($idFranquia)>1 and $_SESSION['usuarioFranquiaId']==0) {
+                    $queryIntoFranquiasLeads = " where cod_franquia in (";
+                    for ($i=0;$i<count($idFranquia);$i++) {
+                        if ($i!=0) $queryIntoFranquiasLeads .= ",";
+                        $queryIntoFranquiasLeads .= "'".$idFranquia[$i]."'";
+                    }
+                    $queryIntoFranquiasLeads .= ")";
+                } else {
+                    $queryIntoFranquiasLeads = " where cod_franquia in (";
+                    $queryIntoFranquiasLeads .= "'".$_SESSION['usuarioFranquiaId']."'";
+                    $queryIntoFranquiasLeads .= ")";
+                }
+                $leadsNovosQuery = $sql->query("select indice from leads".$queryIntoFranquiasLeads." and cod_orientador in ('0')") or die(mysqli_fetch_array($sql));
+                $leadsNovos = mysqli_num_rows($leadsNovosQuery);
+                ?>
+                <div class="num_leads"><?echo $leadsNovos;?></div>
             </div>
         </div>
         <div id="conteudo">

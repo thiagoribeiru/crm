@@ -151,6 +151,7 @@ body {
     text-align: center;
     position: relative;
     margin-right: 20px;
+    cursor: pointer;
 }
 #not_leads img {
     width: 18px;
@@ -328,7 +329,8 @@ body {
     margin-bottom: 10px;
     filter: grayscale(100%);
 }
-#corpo_new {
+#corpo_new,
+#corpo_novos_leads {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -384,4 +386,161 @@ body {
     display: flex;
     -moz-box-align: center;
     align-items: center;
+}
+#lead_manual {
+    width: 100%;
+    max-width: 790px;
+}
+#lead_manual h1 {
+    color: black;
+    text-align: center;
+    font-size: 2rem;
+    padding: 0px 0rem;
+    margin: 40px 0 10px;
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+}
+#lead_manual #form_lead_manual,
+#novos_leads #div_novos_leads {
+    border-top: 4px solid rgb(208, 27, 54);
+    display: flex;
+    flex-direction: column;
+    padding: 0.7rem 20px;
+}
+#novos_leads #novos_leads_topo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#novos_leads #novos_leads_topo svg {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    -moz-user-select: none;
+    font-size: 2.25rem;
+    cursor: pointer;
+    background-color: rgb(208, 27, 54);
+    color: rgb(255,255,255);
+    border-radius: 7px;
+    padding: 4px;
+}
+#lead_manual #form_lead_manual input {
+    min-width: 95%;
+    outline: currentcolor none medium;
+    height: 45px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 1rem 1rem 1rem 40px;
+    border: 1px solid rgb(206, 206, 206);
+    margin: 0.5rem 0px;
+    font-size: 0.8rem;
+    position: inherit;
+    top: inherit;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    font-family: Montserrat,sans-serif;
+    font-weight: 400;
+}
+#lead_manual #form_lead_manual select {
+    border: 1px solid rgb(206, 206, 206);
+    outline: currentcolor none medium;
+    height: 45px;
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    padding: 0px 1rem 0px 40px;
+    margin: 0.5rem 0px;
+    font-size: 0.8rem;
+    position: inherit;
+    top: inherit;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    font-family: Montserrat,sans-serif;
+    font-weight: 400;
+}
+#lead_manual #form_lead_manual textarea {
+    outline: currentcolor none medium;
+    height: 95px;
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    padding: 1rem 1rem 1rem 40px;
+    border: 1px solid rgb(206, 206, 206);
+    margin: 0.5rem 0px;
+    font-size: 0.8rem;
+    position: inherit;
+    top: inherit;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    font-family: Montserrat,sans-serif;
+    font-weight: 400;
+}
+#lead_manual #form_lead_manual button {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 34, 68);
+    outline: currentcolor none medium;
+    border: medium none;
+    width: 100%;
+    margin: 1rem 1rem 1rem 0px;
+    height: 45px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 0px 1rem;
+    display: table;
+    visibility: initial;
+}
+#lead_manual #form_lead_manual a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+#lead_manual #form_lead_manual a p {
+    text-align: center;
+    display: block;
+    margin: 0;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.73);
+}
+#novos_leads {
+    width: 100%;
+    padding: 0 20px;
+}
+#tabela_novos_leads {
+    border-collapse: collapse;
+    width: 100%;
+}
+#tabela_novos_leads tbody tr {
+    cursor: pointer;
+}
+#tabela_novos_leads tbody td,
+#tabela_novos_leads thead th {
+    padding: 10px 5px;
+    word-break: normal;
+}
+#tabela_novos_leads thead th {
+    text-align: left;
+}
+#tabela_novos_leads tbody tr:nth-child(odd) {
+    background-color: #FFDADA;
+}
+#tabela_novos_leads tbody tr:hover {
+    background-color: #FF7B7B;
+}
+#tabela_novos_leads tbody td a {
+    text-decoration: none;
+    color: #000000;
+}
+#tabela_novos_leads tbody td a:hover {
+    text-decoration: underline;
 }
