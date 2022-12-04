@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+ 
+    #RewriteRule ^contato/?$ /contato.php [NC,L]
+    #RewriteRule ^shirt/summer$ results.php?item=shirt&season=summer [QSA]
+
+    RewriteRule ^novo/?$ /index.html [NC,L]
+    RewriteRule ^leads/?$ /index.html [NC,L]
+    RewriteRule ^profile/(.*)?$ /index.html [NC,L]
+</IfModule>
